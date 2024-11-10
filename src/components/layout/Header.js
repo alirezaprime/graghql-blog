@@ -8,7 +8,7 @@ function Header() {
       <AppBar position="sticky">
         <Container maxWidth="lg">
           <Toolbar>
-            <Typography component="h1" variant="h5" fontWeight="bold" flex={1}>
+            <Typography component="h1" variant="h5" fontWeight="700" flex={1}>
               وبلاگ علیرضا
             </Typography>
             <BookIcon />
