@@ -8,7 +8,7 @@ import theme from "./mui/theme";
 import "./styles/index.css";
 
 const client = new ApolloClient({
-  uri: "https://us-west-2.cdn.hygraph.com/content/cm38fs8xq06q407w6b39zv5gk/master",
+  uri: process.env.REACT_APP_GRAGHCMS_URI,
   cache: new InMemoryCache(),
 });
 
