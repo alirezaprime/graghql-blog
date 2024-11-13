@@ -31,13 +31,14 @@ const GET_AUTHORS_INFO = gql`
   }
 `;
 const GET_AUTHOR_INFO = gql`
-  query getAuthorInfo($slug:!String) {
+  query getAuthorInfo($slug: String!) {
     author(where: { slug: $slug }) {
       avatar {
         url
       }
       field
       id
+      name
       description {
         html
       }
