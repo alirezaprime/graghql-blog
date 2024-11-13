@@ -1,13 +1,8 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_AUTHORS_INFO } from "../graghql/queries";
-import {
-  Avatar,
-  Divider,
-  Grid2,
-  Typography,
-  autocompleteClasses,
-} from "@mui/material";
+import { Avatar, Divider, Grid2, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Authors() {
   const { loading, data, error } = useQuery(GET_AUTHORS_INFO);
@@ -25,8 +20,8 @@ function Authors() {
       {authors.map((author, index) => (
         <React.Fragment key={author.id}>
           <Grid2 xs={12} padding={2}>
-            <a
-              href={`/authors/${author.slug}`}
+            <Link
+              to={`/authors/${author.slug}`}
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -37,7 +32,7 @@ function Authors() {
               <Typography component="p" variant="p" color="text.secondary">
                 {author.name}
               </Typography>
-            </a>
+            </Link>
           </Grid2>
           {index !== authors.length - 1 && (
             <Grid2 xs={12}>
