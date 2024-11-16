@@ -48,6 +48,7 @@ import { useParams } from "react-router-dom";
 import { GET_AUTHOR_INFO } from "../graghql/queries";
 import { Avatar, Container, Grid2, Typography } from "@mui/material";
 import CardEL from "../shared/CardEL";
+import Loader from "../shared/Loader";
 
 import sanitizeHtml from "sanitize-html";
 
@@ -57,7 +58,12 @@ function AuthorPage() {
   const { loading, data, error } = useQuery(GET_AUTHOR_INFO, {
     variables: { slug: slug },
   });
-  if (loading) return <h4>Loading ...</h4>;
+  if (loading)
+    return (
+      <h4>
+        <Loader />
+      </h4>
+    );
 
   if (error) return <h4>error ...</h4>;
   console.log(data);
@@ -110,15 +116,16 @@ function AuthorPage() {
               مقالات {name}
             </Typography>
             <Grid2 container spacing={2} mt={2}>
-              {posts.map((post) => (
-                <Grid2 item xs={12} sm={6} md={4} key={post.id}>
-                  <CardEL
-                    title={post.title}
-                    slug={post.slug}
-                    coverPhoto={post.coverPhoto}
-                  />
-                </Grid2>
-              ))}
+              {posts &&
+                posts.map((post) => (
+                  <Grid2 item xs={12} sm={6} md={4} key={post.id}>
+                    <CardEL
+                      title={post.title}
+                      slug={post.slug}
+                      coverPhoto={post.coverPhoto}
+                    />
+                  </Grid2>
+                ))}
             </Grid2>
           </Grid2>
         </Grid2>
