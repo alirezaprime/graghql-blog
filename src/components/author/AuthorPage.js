@@ -65,7 +65,7 @@ function AuthorPage() {
       </h4>
     );
 
-  if (error) return <h4>error ...</h4>;
+  if (error) return <h4>Error ...</h4>;
   console.log(data);
 
   const {
