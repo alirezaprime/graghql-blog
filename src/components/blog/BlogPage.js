@@ -7,6 +7,7 @@ import { Avatar, Container, Grid2, Typography } from "@mui/material";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import sanitizeHtml from "sanitize-html";
 import CommentForm from "../comment/CommentForm";
+import Comments from "../comment/Comments";
 
 function BlogPage() {
   const { slug } = useParams();
@@ -82,43 +83,12 @@ function BlogPage() {
         <Grid2 item xs={12}>
           <CommentForm slug={slug} />
         </Grid2>
+        <Grid2 item xs={12}>
+          <Comments slug={slug} />
+        </Grid2>
       </Grid2>
     </Container>
   );
-
-  //   return (
-  //     <div>
-  //       {" "}
-  //       <Container maxWidth="lg">
-  //         {" "}
-  //         <Grid2 container>
-  //           {" "}
-  //           <Grid2
-  //             item
-  //             xs={12}
-  //             mt={9}
-  //             sx={{
-  //               display: "flex",
-  //               justifyContent: "space-between",
-  //               alignItems: "center",
-  //             }}
-  //           >
-  //             {" "}
-  //             <ArrowBackRoundedIcon onClick={() => navigate(-1)} />{" "}
-  //             <Typography
-  //               component="h2"
-  //               variant="h4"
-  //               color="primary"
-  //               fontWeight={700}
-  //             >
-  //               {" "}
-  //               {data.post.title}{" "}
-  //             </Typography>{" "}
-  //           </Grid2>{" "}
-  //         </Grid2>{" "}
-  //       </Container>{" "}
-  //     </div>
-  //   );
 }
 
 export default BlogPage;
